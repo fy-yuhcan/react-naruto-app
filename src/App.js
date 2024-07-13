@@ -5,9 +5,9 @@ import axios from 'axios';
 function App() {
   const [characters,setCharacters] = useState([]);
   useEffect(() => {fetchCharacters()},[])
-  const fetchCharacters = async ()=> {
+  const fetchCharacters = async (page)=> {
     const apiUrl = "https://narutodb.xyz/api/character"
-    const result = await axios.get(apiUrl);
+    const result = await axios.get(apiUrl,{params: {page:page}});
     setCharacters(result.data.characters);
     console.log(result)
   }
@@ -34,6 +34,13 @@ function App() {
               </div>
             </div>)
           })}
+        </div>
+        <div className='pager'>
+          <button className='prev'>
+            戻る
+          </button>
+          <span className='page-number'>1</span>
+          <button className='next'>次へ</button>
         </div>
       </main>
     </div>
