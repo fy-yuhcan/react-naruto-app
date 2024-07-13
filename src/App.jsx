@@ -26,6 +26,13 @@ function App() {
   }
   return (
     <div className="container">
+      <div className='header'>
+        <div className='header'>
+          <div className='header-content'>
+            <img src='logo (1).png' alt='logo' className='logo'/>
+          </div>
+        </div>
+      </div>
       {isLoading 
       ?<div>Now Loading</div> 
       :
