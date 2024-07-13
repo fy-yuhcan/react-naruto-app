@@ -19,6 +19,11 @@ function App() {
     await fetchCharacters(nextPage)
     setPage(nextPage);
   }
+  const handlePrev = async()=>{
+    const prevPage = page -1;
+    await fetchCharacters(prevPage)
+    setPage(prevPage);
+  }
   return (
     <div className="container">
       {isLoading 
@@ -47,7 +52,7 @@ function App() {
           })}
         </div>
         <div className='pager'>
-          <button className='prev'>
+          <button className='prev' onClick={handlePrev}>
             戻る
           </button>
           <span className='page-number'>{page}</span>
